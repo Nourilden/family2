@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tahoun family</title>
+  <link rel="icon" href="icon.ico" type="image/x-icon" />
+  <!-- Orbitron Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    /* Root & Reset */
+    :root {
+      --dark-bg: #0a0a0a;
+      --darker-bg: #050505;
+      --light-blue: #00a8ff;
+      --dark-blue: #0077b6;
+      --text-light: #e0e0e0;
+      --text-lighter: #ffffff;
+      --neon: #00ffe1;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+    }
+    
+    /* Header Bar */
+    .header {
+      width: 100%;
+      background: linear-gradient(to right, #0d0d0d, #1f1f1f);
+      padding: 15px 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: slideDown 0.5s ease;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid var(--neon);
+      background-color: #fff;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .icon:hover {
+      transform: rotate(10deg) scale(1.05);
+    }
+    
+    .name-link {
+      text-decoration: none;
+    }
+    
+    .name {
+      font-size: 2rem;
+      background: linear-gradient(90deg, var(--neon), var(--dark-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+    
+    .name:hover {
+      filter: brightness(1.2);
+    }
+    
+    /* Main Page Header */
+    header {
+      text-align: center;
+      padding: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 168, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+      z-index: -1;
+    }
+    
+    .h1 {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #00ffff;
+      animation: glow 2s infinite alternate;
+    }
+    
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #00ffff; }
+      100% { text-shadow: 0 0 20px #00ffff; }
+    }
+    
+    /* Developer Cards Section */
+    .developer {
+      display: flex;
+      align-items: center;
+      background: #1c1c1c;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 30px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+      animation: fadeInUp 1s ease forwards;
+    }
+    .developer:hover {
+      transform: scale(1.02);
+    }
+    .dev-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 20px;
+      border: 4px solid #00ffee;
+      flex-shrink: 0;
+    }
+    .dev-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .dev-info {
+      flex: 1;
+    }
+    .dev-name {
+      font-size: 1.5rem;
+      color: #00ffee;
+      animation: typing 1.5s steps(20, end), blink 0.7s step-end none;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #00ffee;
+      width: 0;
+      display: inline-block;
+      animation-fill-mode: forwards;
+    }
+    .dev-role {
+      color: #bbb;
+      margin: 10px 0;
+    }
+    .dev-desc {
+      color: #ccc;
+      line-height: 1.5;
+      animation: fadeIn 2s ease forwards;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .developer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .dev-img {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-container">
+      <img class="icon" src="icon.png" alt="Fixly Icon">
+      <a href="index.html" class="name-link">
+        <h1 class="name">عائلة نصار</h1>
+      </a>
+    </div>
+  </div>
+
+  
+   
+
+    <!-- Developer Cards Section (from prompt) -->
+<div class="developer">
+  <div class="dev-img">
+    <img src="images/Noureldin.png" alt="Developer 1">
+  </div>
+  <div class="dev-info">
+    <div class="dev-name">نور الدين محمود</div>
+    <div class="dev-role">مطور ويب</div>
+    <div class="dev-desc">إنشاء واجهات ويب تفاعلية ومستجيبة باستخدام HTML وCSS وJavaScript.</div>
+  </div>
+</div>
+
+
+
+<div class="developer">
+  <div class="dev-img">
+    <img src="images/Omar.png" alt="Developer 3">
+  </div>
+  <div class="dev-info">
+    <div class="dev-name">عمر محمود</div>
+    <div class="dev-role">مصمم واجهة المستخدم وتجربة المستخدم</div>
+    <div class="dev-desc">تصميم تجارب جذابة بصريًا وسهلة الاستخدام وتبدو رائعة على جميع الأجهزة.</div>
+  </div>
+</div>
+<div class="developer">
+  <div class="dev-img">
+    <img src="images/hamza.jpg" alt="Developer 3">
+  </div>
+  <div class="dev-info">
+    <div class="dev-name">حمزه محمود</div>
+    <div class="dev-role">لاعب كره قدم</div>
+    <div class="dev-desc">محترف كره القدم و يحب عمل برامج و تطبيقات اكسل</div>
+  </div>
+</div>
+<div class="developer">
+  <div class="dev-img">
+    <img src="images/amal.jpg" alt="Developer 3">
+  </div>
+  <div class="dev-info">
+    <div class="dev-name">امل محمد</div>
+    <div class="dev-role">الطبخ و الرسم</div>
+    <div class="dev-desc">إنها تحب الرسم والخروج في المغامرات وتحضير أطباق جديدة وتجربة أطعمة جديدة.</div>
+  </div>
+  </div>
+  <div class="developer">
+  <div class="dev-img">
+    <img src="images/Yossef.jpg" alt="Developer 3">
+  </div>
+  <div class="dev-info">
+    <div class="dev-name">يوسف محمود</div>
+    <div class="dev-role">اللعب بالسيارات</div>
+    <div class="dev-desc">يحب لعب كرة القدم واللعب بالسيارات والمكعبات </div>
+  </div>
+  </div>
+  <div class="developer">
+  <div class="dev-img">
+    <img src="images/sara.png" alt="Developer 3">
+  </div>
+  <div class="dev-info">
+    <div class="dev-name">ساره احمد</div>
+    <div class="dev-role">Gammer</div>
+    <div class="dev-desc">محترفه العاب رعب و تحب الطبخ قليلا و تعمل سلاسل من الخرز و الاشياء الاخري و تحب الطبخ</div>
+  </div>
+  </div>
+  <div class="developer">
+  <div class="dev-img">
+    <img src="images/Zahraa.jpg" alt="Developer 3">
+  </div>
+  <div class="dev-info">
+    <div class="dev-name">زهراء محمد</div>
+    <div class="dev-role">الرسم و الخرز </div>
+    <div class="dev-desc">و تحب الطبخ كثيرا و تعمل سلاسل من الخرز و الاشياء الاخري و تحب الطبخ و الرسم</div>
+  </div>
+  </div>
+</body>
+</html>
